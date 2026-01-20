@@ -28,40 +28,56 @@
     --terminal-green: #00ff41;
   }
 
-  /* Main Header Container */
-  .header__inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    flex-wrap: wrap; /* Allows menu to drop down if logo is too wide */
+  /* 1. Reduce the gap at the very top */
+  .header {
+    padding: 10px 0; /* Tightens the top margin */
   }
 
+  .header__inner {
+    display: flex;
+    flex-direction: column; /* Stack elements for mobile */
+    align-items: center;
+    gap: 10px; /* Controls the space between Status, Logo, and Menu */
+  }
+
+  /* 2. Fix the Logo container for mobile scaling */
   .logo-container {
     display: flex;
     align-items: center;
     border: 2px solid var(--terminal-green);
     padding: 5px 10px;
-    white-space: nowrap;
+    width: fit-content;
+    margin: 0 auto;
   }
 
-  /* Responsive Adjustments for Mobile */
-  @media (max-width: 684px) {
-    .header__inner {
-      flex-direction: column; /* Stacks logo and menu on small screens */
-      gap: 15px;
-    }
-    
-    .logo-text {
-      font-size: 0.9rem; /* Smaller font so brackets don't clip */
-      padding: 0 5px;
-    }
+  /* 3. Force the Menu to appear on mobile */
+  .menu {
+    display: block !important; /* Overrides theme defaults that hide menus */
+    width: 100%;
+  }
 
-    .menu ul {
-      justify-content: center;
-      padding: 0;
-      font-size: 0.8rem;
-      gap: 10px;
-    }
+  .menu__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Wraps links if they are too wide for the phone */
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    gap: 15px;
+  }
+
+  .menu__inner li a {
+    color: var(--terminal-green);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  /* Systems Header text alignment */
+  .systems-header {
+    font-size: 0.75rem;
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 5px;
   }
 </style>
