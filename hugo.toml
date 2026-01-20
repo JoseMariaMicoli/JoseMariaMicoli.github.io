@@ -1,0 +1,26 @@
+baseURL = 'https://JoseMariaMicoli.github.io/'
+title = 'Ghost-Hydra Intelligence'
+theme = 'terminal'
+
+[params]
+  themeColor = "green"
+  contentTypeName = "posts"
+  author = "J.M. Micoli"
+  codename = "Xoce"
+
+[languages]
+  [languages.en]
+    languageCode = "en-us"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "Manifesto"
+        url = "/posts/manifesto"
+        weight = 1
+      [[languages.en.menu.main]]
+        name = "Intel Feed"
+        url = "/posts"
+        weight = 2
+      [[languages.en.menu.main]]
+        name = "Legal"
+        url = "/license"
+        weight = 3
