@@ -12,3 +12,24 @@ body {
   background-color: #0d0208; /* Deeper black for better contrast */
   color: #00ff41;
 }
+
+/* Ensure content has breathing room on mobile */
+.content {
+  padding: 0 20px;
+  max-width: 100%;
+  overflow-wrap: break-word; /* Prevents long code/hashes from breaking layout */
+}
+
+/* Make images (like your Hydra logo) responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure the TOP SECRET block fits on phones */
+blockquote {
+  font-size: 0.85rem;
+  margin-left: 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--terminal-green);
+}
