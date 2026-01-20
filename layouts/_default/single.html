@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="post">
+  <header class="post-header">
+    <div style="color: var(--terminal-green); font-family: monospace; margin-bottom: 20px;">
+      [cite_start]<p>> **CLASSIFICATION: LEVEL 4 TOP SECRET**</p> [cite: 1, 11]
+      [cite_start]<p>> **OPERATOR:** J.M. MICOLI</p> [cite: 8, 110]
+      <p>> **SYSTEM:** DARKARCH LINUX</p>
+      <p>> **STATUS:** ACTIVE TRANSMISSION</p>
+      <hr style="border: 1px dashed var(--terminal-green);">
+    </div>
+    <h1 class="post-title">{{ .Title }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="post-footer">
+    <div style="color: var(--terminal-green); font-family: monospace; margin-top: 40px;">
+      <hr style="border: 1px dashed var(--terminal-green);">
+      <p>> **SIGNAL TERMINATED**</p>
+      [cite_start]<p>> **[ AUTHENTICATED BY GHOST-HYDRA ENGINE ]**</p> [cite: 106, 119]
+    </div>
+  </footer>
+</article>
+{{ end }}
