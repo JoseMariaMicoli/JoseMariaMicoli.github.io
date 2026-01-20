@@ -6,8 +6,6 @@ theme = 'terminal'
   themeColor = "green"
   contentTypeName = "posts"
   author = "J.M. Micoli"
-  codename = "Xoce"
-  # This puts the name at the top of every page
   logoText = "GHOST-HYDRA INTELLIGENCE" 
 
 [taxonomies]
@@ -16,7 +14,7 @@ theme = 'terminal'
   series = "series"
 
 [permalinks]
-  series = "/series/:slug/" # This forces a clean URL structure
+  series = "/series/:slug/"
 
 [languages]
   [languages.en]
@@ -25,16 +23,24 @@ theme = 'terminal'
       [[languages.en.menu.main]]
         name = "Manifesto"
         url = "/posts/manifesto"
-        weight = 1
+        weight = 10
       [[languages.en.menu.main]]
-        name = "Attack Anatomy"
+        name = "Cyber Attack Anatomy"
         url = "/series/anatomy-of-an-attack"
-        weight = 2
+        weight = 20
+      [[languages.en.menu.main]]
+        name = "RED-TEAM Professional Suite"
+        url = "/categories/pro-suite/"
+        weight = 30
+      [[languages.en.menu.main]]
+        name = "ExploitDevLog"
+        url = "/categories/devlog/"
+        weight = 40
       [[languages.en.menu.main]]
         name = "Intel Feed"
         url = "/posts"
-        weight = 3
+        weight = 50
       [[languages.en.menu.main]]
         name = "Legal"
         url = "/license"
-        weight = 4
+        weight = 60

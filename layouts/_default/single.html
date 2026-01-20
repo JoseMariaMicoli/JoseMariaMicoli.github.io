@@ -1,45 +1,67 @@
 {{ define "main" }}
-<div class="terminal-window">
+<div class="terminal-window" style="padding: 20px;">
   <header class="terminal-header">
-    <div style="color: var(--terminal-green); font-family: 'Courier New', monospace; line-height: 1.4;">
-      <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> cat /proc/ghost-hydra/classification</p>
-      <p style="margin: 0;">> **CLASSIFICATION: LEVEL 4 TOP SECRET**</p>
-      <p style="margin: 0;">> **OPERATOR:** J.M. MICOLI</p>
-      <p style="margin: 0;">> **SYSTEM:** DARKARCH LINUX (KERNEL: 6.x-OFFENSIVE)</p>
-      <p style="margin: 0;">> **STATUS:** ACTIVE TRANSMISSION</p>
-      <div style="border-bottom: 1px dashed var(--terminal-green); width: 100%; margin: 15px 0;"></div>
+    <div style="font-family: 'Courier New', monospace; line-height: 1.4; text-align: left !important; margin-bottom: 20px;">
+      
+      {{ $isSuite := false }}
+      {{ if .Params.categories }}
+        {{ if in .Params.categories "pro-suite" }}
+          {{ $isSuite = true }}
+        {{ end }}
+      {{ end }}
+
+      {{ if $isSuite }}
+      <div style="color: #00e5ff !important;">
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> ./ghost-hydra-suite --initialize</p>
+        <p style="margin: 0;">> [ LOADED MODULES: 7/7 STABLE ]</p>
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> ghost-suite --check-integrity</p>
+        <p style="margin: 0;">> SIGNATURE: Jose Maria Micoli (Verified)</p>
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> set --theme cyan-offensive</p>
+        <p style="margin: 0;">> UI_THEME: #00e5ff_CYAN_REACTIVE</p>
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> ./transmiter.py --mode technical-whitepaper</p>
+        <p style="margin: 0;">> [ STATUS >> READY FOR DATA DUMP... ]</p>
+        <div style="border-bottom: 1px dashed #00e5ff; width: 100%; margin: 15px 0;"></div>
+      </div>
+      
+      {{ else }}
+      <div style="color: #00ff41 !important;">
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> cat /proc/ghost-hydra/classification</p>
+        <p style="margin: 0;">> CLASSIFICATION: LEVEL 4 TOP SECRET</p>
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> whoami</p>
+        <p style="margin: 0;">> xoce</p>
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> uname -omsr</p>
+        <p style="margin: 0;">> DarkArch 6.x-OFFENSIVE x86_64 GNU/Linux</p>
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> python3 transmiter.py</p>
+        <p style="margin: 0;">> [ STATUS >> ACTIVE TRANSMISSION... ]</p>
+        <div style="border-bottom: 1px dashed #00ff41; width: 100%; margin: 15px 0;"></div>
+      </div>
+      {{ end }}
+
     </div>
-    <h1 class="post-title" style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.5rem;">
+
+    <h1 class="post-title" style="color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }}; text-transform: uppercase; font-size: 1.5rem; text-align: left; margin: 0;">
       {{ .Title }}
     </h1>
   </header>
 
-  <div class="post-content" style="font-family: 'Courier New', monospace;">
+  <div class="post-content" style="text-align: left; margin-top: 30px;">
     {{ .Content }}
   </div>
 
-  <footer class="terminal-footer" style="color: var(--terminal-green); font-family: 'Courier New', monospace; margin-top: 40px;">
-    <div style="border-top: 1px dashed var(--terminal-green); width: 100%; margin: 15px 0;"></div>
-    <p style="margin: 0;">> **SIGNAL TERMINATED**</p>
-    <p style="margin: 0;">> **[ AUTHENTICATED BY GHOST-HYDRA ENGINE ]**</p>
+  <footer class="terminal-footer" style="color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }}; font-family: 'Courier New', monospace; margin-top: 40px; text-align: left;">
+    <div style="border-top: 1px dashed; width: 100%; margin: 15px 0;"></div>
+    <p style="margin: 0;">> [ SIGNAL TERMINATED ]</p>
+    <p style="margin: 0;">> [ DE-AUTHENTICATED BY GHOST-HYDRA OPS ENGINE ]</p>
     <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> <span class="cursor">_</span></p>
   </footer>
 </div>
 
 <style>
-  .cursor {
-    animation: blink 1s infinite;
-  }
-  @keyframes blink {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-  .post-content h3, .post-content h4 {
-    color: var(--terminal-green);
-    border-left: 3px solid var(--terminal-green);
-    padding-left: 10px;
-    margin-top: 25px;
+  .cursor { animation: blink 1s infinite; }
+  @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+  .post-content h1, .post-content h2, .post-content h3 { 
+    text-align: left !important; 
+    color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }} !important;
   }
 </style>
 {{ end }}

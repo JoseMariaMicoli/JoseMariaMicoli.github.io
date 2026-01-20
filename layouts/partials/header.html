@@ -1,4 +1,4 @@
-<div class="terminal-status-bar">
+<div class="terminal-status-bar" style="color: #ff3e3e; text-shadow: 0 0 8px #8a0303; text-align: center; width: 100%; font-family: 'Courier New', monospace; padding: 10px 0; letter-spacing: 3px; font-weight: bold; background: rgba(138, 3, 3, 0.05);">
     [ SYSTEM: DARKARCH ] [ OPERATOR: XOCE ] [ STATUS: ENCRYPTED ]
 </div>
 
@@ -26,21 +26,30 @@
 <style>
   :root {
     --terminal-green: #00ff41;
+    --blood-red: #ff3e3e;
+  }
+
+  /* Centering the status bar specifically */
+  .terminal-status-bar {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
   }
 
   /* 1. Reduce the gap at the very top */
   .header {
-    padding: 10px 0; /* Tightens the top margin */
+    padding: 10px 0;
   }
 
   .header__inner {
     display: flex;
-    flex-direction: column; /* Stack elements for mobile */
+    flex-direction: column;
     align-items: center;
-    gap: 10px; /* Controls the space between Status, Logo, and Menu */
+    gap: 10px;
   }
 
-  /* 2. Fix the Logo container for mobile scaling */
+  /* 2. Fix the Logo container */
   .logo-container {
     display: flex;
     align-items: center;
@@ -50,16 +59,16 @@
     margin: 0 auto;
   }
 
-  /* 3. Force the Menu to appear on mobile */
+  /* 3. Menu logic */
   .menu {
-    display: block !important; /* Overrides theme defaults that hide menus */
+    display: block !important;
     width: 100%;
   }
 
   .menu__inner {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Wraps links if they are too wide for the phone */
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 10px 0;
@@ -71,13 +80,5 @@
     text-transform: uppercase;
     font-size: 0.85rem;
     text-decoration: none;
-  }
-
-  /* Systems Header text alignment */
-  .systems-header {
-    font-size: 0.75rem;
-    text-align: center;
-    color: #ccc;
-    margin-bottom: 5px;
   }
 </style>
