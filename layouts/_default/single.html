@@ -1,26 +1,45 @@
 {{ define "main" }}
-<article class="post">
-  <header class="post-header">
-    <div style="color: var(--terminal-green); font-family: monospace; margin-bottom: 20px;">
-      [cite_start]<p>> **CLASSIFICATION: LEVEL 4 TOP SECRET**</p> [cite: 1, 11]
-      [cite_start]<p>> **OPERATOR:** J.M. MICOLI</p> [cite: 8, 110]
-      <p>> **SYSTEM:** DARKARCH LINUX</p>
-      <p>> **STATUS:** ACTIVE TRANSMISSION</p>
-      <hr style="border: 1px dashed var(--terminal-green);">
+<div class="terminal-window">
+  <header class="terminal-header">
+    <div style="color: var(--terminal-green); font-family: 'Courier New', monospace; line-height: 1.4;">
+      <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> cat /proc/ghost-hydra/classification</p>
+      <p style="margin: 0;">> **CLASSIFICATION: LEVEL 4 TOP SECRET**</p>
+      <p style="margin: 0;">> **OPERATOR:** J.M. MICOLI</p>
+      <p style="margin: 0;">> **SYSTEM:** DARKARCH LINUX (KERNEL: 6.x-OFFENSIVE)</p>
+      <p style="margin: 0;">> **STATUS:** ACTIVE TRANSMISSION</p>
+      <div style="border-bottom: 1px dashed var(--terminal-green); width: 100%; margin: 15px 0;"></div>
     </div>
-    <h1 class="post-title">{{ .Title }}</h1>
+    <h1 class="post-title" style="color: var(--terminal-green); text-transform: uppercase; font-size: 1.5rem;">
+      {{ .Title }}
+    </h1>
   </header>
 
-  <div class="post-content">
+  <div class="post-content" style="font-family: 'Courier New', monospace;">
     {{ .Content }}
   </div>
 
-  <footer class="post-footer">
-    <div style="color: var(--terminal-green); font-family: monospace; margin-top: 40px;">
-      <hr style="border: 1px dashed var(--terminal-green);">
-      <p>> **SIGNAL TERMINATED**</p>
-      [cite_start]<p>> **[ AUTHENTICATED BY GHOST-HYDRA ENGINE ]**</p> [cite: 106, 119]
-    </div>
+  <footer class="terminal-footer" style="color: var(--terminal-green); font-family: 'Courier New', monospace; margin-top: 40px;">
+    <div style="border-top: 1px dashed var(--terminal-green); width: 100%; margin: 15px 0;"></div>
+    <p style="margin: 0;">> **SIGNAL TERMINATED**</p>
+    <p style="margin: 0;">> **[ AUTHENTICATED BY GHOST-HYDRA ENGINE ]**</p>
+    <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> <span class="cursor">_</span></p>
   </footer>
-</article>
+</div>
+
+<style>
+  .cursor {
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  .post-content h3, .post-content h4 {
+    color: var(--terminal-green);
+    border-left: 3px solid var(--terminal-green);
+    padding-left: 10px;
+    margin-top: 25px;
+  }
+</style>
 {{ end }}
