@@ -1,0 +1,14 @@
+/* Force all primary elements to Terminal Green */
+h1, h2, h3, .post-title, .post-date, .post-tags a {
+  color: #00ff41 !important;
+}
+
+/* Fix the dotted line separator color */
+.header, .footer {
+  border-color: #003b00 !important;
+}
+
+body {
+  background-color: #0d0208; /* Deeper black for better contrast */
+  color: #00ff41;
+}

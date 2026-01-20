@@ -1,3 +1,61 @@
 <div class="terminal-status-bar">
     [ SYSTEM: DARKARCH ] [ OPERATOR: XOCE ] [ STATUS: ENCRYPTED ]
 </div>
+
+<header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="{{ .Site.BaseURL }}" style="text-decoration: none;">
+        <div class="logo-container">
+          <span class="bracket">[</span>
+          <span class="logo-text">GHOST-HYDRA INTELLIGENCE</span>
+          <span class="bracket">]</span>
+        </div>
+      </a>
+    </div>
+    <nav class="menu">
+      <ul class="menu__inner">
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  :root {
+    --terminal-green: #00ff41; /* Classic Phosphor Green */
+    --terminal-dark: #0d0208;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 5px 10px;
+    border: 2px solid var(--terminal-green);
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap; /* Prevents the ']' from jumping to next line */
+  }
+
+  .logo-text {
+    color: var(--terminal-green);
+    font-weight: bold;
+    padding: 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .bracket {
+    color: var(--terminal-green);
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .menu a {
+    color: var(--terminal-green) !important;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+</style>

@@ -7,6 +7,13 @@ theme = 'terminal'
   contentTypeName = "posts"
   author = "J.M. Micoli"
   codename = "Xoce"
+  # This puts the name at the top of every page
+  logoText = "GHOST-HYDRA INTELLIGENCE" 
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
 
 [languages]
   [languages.en]
@@ -17,10 +24,14 @@ theme = 'terminal'
         url = "/posts/manifesto"
         weight = 1
       [[languages.en.menu.main]]
+        name = "Attack Anatomy"
+        url = "/series/anatomy-of-an-attack"
+        weight = 2
+      [[languages.en.menu.main]]
         name = "Intel Feed"
         url = "/posts"
-        weight = 2
+        weight = 3
       [[languages.en.menu.main]]
         name = "Legal"
         url = "/license"
-        weight = 3
+        weight = 4

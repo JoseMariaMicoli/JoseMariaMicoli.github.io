@@ -9,7 +9,6 @@ draft: false
 tags: ["Mission", "Red Team", "DarkArch", "Tradecraft"]
 ---
 
-
 > **CLASSIFICATION: LEVEL 4 TOP SECRET** > **OPERATOR:** J.M. MICOLI  
 > **SYSTEM:** DARKARCH LINUX  
 > **STATUS:** ACTIVE TRANSMISSION
@@ -25,6 +24,18 @@ In the modern landscape, the line between a "security tool" and "adversarial tra
 The "Hydra" represents our approach to offensive operations. In a world of EDR, XDR, and heuristic monitoring, a single-vector attack is a failure. 
 * **Persistence through Redundancy:** Like the mythic beast, our tradecraft utilizes multiple "heads." If one C2 channel is severed, two more—using entirely different protocols (gRPC, DNS-over-HTTPS, or OIDC trust)—take its place.
 * **The Ghost Factor:** We operate in the white noise of legitimate traffic. Our goal is not just to bypass security, but to be indistinguishable from the system itself.
+
+### II.b The Anatomy of a Modern Attack (Intelligence Series)
+To understand the Hydra, one must understand the strike. We have dedicated a specialized research series to the four-dimensional infiltration process that defines modern warfare:
+
+1. **Reconnaissance & Shadow Mapping:** Identifying assets beyond the security perimeter (forgotten APIs and dev-leaks).
+2. **Initial Access via Identity:** Targeting OIDC trust and session tokens to neutralize MFA.
+3. **Persistence through Native Binaries:** Living-off-the-land using Go/Rust to bypass EDR hooks.
+4. **Exfiltration via Side-Channels:** Masking data as legitimate gRPC or DNS-over-HTTPS noise.
+
+> **[ACCESS FULL SERIES ANALYSIS HERE](/series/anatomy-of-an-attack)**
+
+
 
 ### III. The Mission
 This platform is a repository of **Adversarial Intelligence**. Here, we move beyond "how-to" guides and into deep-tier engineering:
