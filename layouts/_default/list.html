@@ -1,129 +1,40 @@
 {{ define "main" }}
-<div class="terminal-feed" style="text-align: left !important; display: block !important;">
-    
-    <div style="color: var(--terminal-green); font-family: 'Courier New', monospace; margin-bottom: 30px; opacity: 0.8; text-align: left;">
-        <p style="margin: 0;">[xoce@darkarch ~]$ ls -la /var/log/intel/{{ .Title | lower }}</p>
-        <p style="margin: 0;">total {{ len .Paginator.Pages }}</p>
-        <div style="border-bottom: 1px dashed var(--terminal-green); width: 100%; margin-top: 10px;"></div>
-    </div>
-
+<div id="terminal-feed-list" class="terminal-feed" style="text-align: left !important; display: block !important;">
     {{ range .Paginator.Pages }}
-    <article class="post-entry" style="margin-bottom: 40px; position: relative; text-align: left; display: block;">
-        <header class="entry-header">
-            <h2 style="margin: 0; font-size: 1.4rem;">
-                <a href="{{ .Permalink }}" style="color: var(--terminal-green); text-decoration: none; border-bottom: 1px solid transparent;">
-                    <span style="color: #888;">></span> {{ .Title }}
+    <article class="post-entry" style="margin-bottom: 40px; text-align: left;">
+        <header>
+            <h2 class="entry-title" style="margin: 0; font-size: 1.4rem;">
+                <a href="{{ .Permalink }}" class="feed-link">
+                    <span class="arrow-icon">></span> {{ .Title }}
                 </a>
             </h2>
-            <div style="font-family: monospace; font-size: 0.8rem; color: #666; margin-top: 5px;">
-                PUBLISHED: {{ .Date.Format "2006-01-02" }} | STATUS: ARCHIVED
-            </div>
         </header>
-
-        <div class="entry-summary" style="margin: 15px 0; color: #bbb; font-family: 'Courier New', monospace; line-height: 1.5;">
-            {{ .Summary | plainify | truncate 250 }}
-        </div>
-
+        <div style="margin: 15px 0; color: #bbb;">{{ .Summary | plainify | truncate 250 }}</div>
         <footer class="entry-footer">
-            <a href="{{ .Permalink }}" style="color: var(--terminal-green); font-family: monospace; text-decoration: none; font-weight: bold;">
-                [ READ FULL INTEL_ ]
-            </a>
+            <a href="{{ .Permalink }}" class="intel-link">[ READ FULL INTEL_ ]</a>
         </footer>
     </article>
     {{ end }}
-
-    {{ if gt .Paginator.TotalPages 1 }}
-    <nav class="pagination" style="margin-top: 50px; font-family: monospace; color: var(--terminal-green); text-align: center; display: block;">
-        {{ if .Paginator.HasPrev }}
-        <a href="{{ .Paginator.Prev.URL }}" style="color: var(--terminal-green); text-decoration: none;">[ PREV ]</a>
-        {{ end }}
-        <span style="margin: 0 15px;">PAGE {{ .Paginator.PageNumber }} OF {{ .Paginator.TotalPages }}</span>
-        {{ if .Paginator.HasNext }}
-        <a href="{{ .Paginator.Next.URL }}" style="color: var(--terminal-green); text-decoration: none;">[ NEXT ]</a>
-        {{ end }}
-    </nav>
-    {{ end }}
-
-    <div id="active-log-monitor" style="margin-top: 60px; border: 1px solid #00ff41; background: #000; display: block !important; visibility: visible !important; position: relative; z-index: 9999;">
-        <div style="background: rgba(0, 255, 65, 0.2); padding: 8px 15px; font-family: monospace; color: #00ff41; font-size: 0.8rem; border-bottom: 1px solid #00ff41; font-weight: bold; letter-spacing: 1px;">
-            LOG_STREAM: /var/log/ghost-hydra.log --tail -f
-        </div>
-        <div id="live-log-content" style="padding: 15px; font-family: 'Courier New', monospace; font-size: 0.85rem; height: 160px; color: #eee; overflow: hidden; line-height: 1.6; text-align: left !important;">
-            </div>
-    </div>
-
-    <div style="margin-top: 30px; color: #444; font-family: monospace; text-align: left;">
-        <p>[xoce@darkarch ~]$ <span class="cursor">_</span></p>
-    </div>
 </div>
 
 <style>
-    .post-entry:hover h2 a {
-        background-color: var(--terminal-green);
-        color: #000 !important;
+    /* Default Colors */
+    #terminal-feed-list .feed-link, 
+    #terminal-feed-list .intel-link { 
+        color: #00ff41 !important; 
+        text-decoration: none; 
+        transition: all 0.2s ease;
     }
-    .cursor {
-        animation: blink 1s infinite;
+    
+    #terminal-feed-list .arrow-icon { color: #888; }
+
+    /* RED HOVER OVERRIDE */
+    #terminal-feed-list .feed-link:hover, 
+    #terminal-feed-list .intel-link:hover { 
+        color: #ff3e3e !important; 
+        text-shadow: 0 0 8px #8a0303 !important;
     }
-    @keyframes blink {
-        0% { opacity: 0; }
-        50% { opacity: 1; }
-        100% { opacity: 0; }
-    }
-    #live-log-content div {
-        animation: logEntryFade 0.3s ease-out;
-    }
-    @keyframes logEntryFade {
-        from { opacity: 0; transform: translateY(5px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+    
+    #terminal-feed-list .feed-link:hover .arrow-icon { color: #ff3e3e !important; }
 </style>
-
-<script type="text/javascript">
-    (function() {
-        const logBox = document.getElementById('live-log-content');
-        
-        // Safety check to see if the script is firing
-        console.log("Ghost-Hydra Live Log Initializing...");
-
-        if (!logBox) {
-            console.error("Critical Error: #live-log-content not found in DOM.");
-            return;
-        }
-
-        const events = [
-            "CONNECTION_ESTABLISHED: NODE_0x4F2 (AES-256-GCM)",
-            "PULLING_OIDC_TOKEN: ephemeral-identity-provider...",
-            "GHOST-PIPELINE: INJECTING WEAVER_AGENT.SO",
-            "ENCRYPTION_HANDSHAKE: SUCCESS",
-            "BEHAVIORAL_BYPASS: eBPF HOOK ATTACHED",
-            "HEARTBEAT: GHOST-INTEL ENGINE ACTIVE",
-            "RELAY_BUFFER_PURGED: SECURE_DELETE_EXEC",
-            "SIGNAL_ROUTED: TARGET_CLOUD_STORAGE_P3",
-            "AUTH_SUCCESS: xoce@darkarch (LEVEL 4)",
-            "SCANNED: VULNERABILITY_ID_CVE-2021-44228_FOUND"
-        ];
-
-        function addEntry() {
-            const time = new Date().toLocaleTimeString('en-GB', { hour12: false });
-            const event = events[Math.floor(Math.random() * events.length)];
-            const div = document.createElement('div');
-            
-            div.innerHTML = `<span style="color: #888;">[${time}]</span> <span style="color: #00ff41; font-weight: bold;">[OK]</span> <span style="color: #eee;">${event}</span>`;
-            
-            logBox.appendChild(div);
-
-            // Keep only last 7 lines
-            if (logBox.childNodes.length > 7) {
-                logBox.removeChild(logBox.firstChild);
-            }
-        }
-
-        // Run immediately
-        addEntry();
-        
-        // Interval for continuous feed
-        setInterval(addEntry, 4000);
-    })();
-</script>
 {{ end }}

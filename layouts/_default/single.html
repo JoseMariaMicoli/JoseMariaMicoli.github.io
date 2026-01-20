@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="terminal-window" style="padding: 20px;">
+<div id="single-post-container" class="terminal-window" style="padding: 20px;">
   <header class="terminal-header">
     <div style="font-family: 'Courier New', monospace; line-height: 1.4; text-align: left !important; margin-bottom: 20px;">
       
@@ -39,8 +39,10 @@
 
     </div>
 
-    <h1 class="post-title" style="color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }}; text-transform: uppercase; font-size: 1.5rem; text-align: left; margin: 0;">
-      {{ .Title }}
+    <h1 class="post-title" style="text-transform: uppercase; font-size: 1.5rem; text-align: left; margin: 0;">
+      <a href="{{ .Permalink }}" class="single-title-link">
+        <span class="arrow">></span> {{ .Title }}
+      </a>
     </h1>
   </header>
 
@@ -57,11 +59,36 @@
 </div>
 
 <style>
-  .cursor { animation: blink 1s infinite; }
-  @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+  /* 1. Base Title Color */
+  #single-post-container .single-title-link {
+    color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }} !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+  }
+
+  /* 2. RED ALERT HOVER (Targeting the single page title) */
+  #single-post-container .single-title-link:hover {
+    color: #ff3e3e !important;
+    text-shadow: 0 0 10px #8a0303 !important;
+  }
+
+  /* 3. Arrow Color Logic */
+  #single-post-container .arrow {
+    color: #666;
+    margin-right: 5px;
+  }
+  #single-post-container .single-title-link:hover .arrow {
+    color: #ff3e3e !important;
+  }
+
+  /* 4. Content Headers */
   .post-content h1, .post-content h2, .post-content h3 { 
     text-align: left !important; 
     color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }} !important;
   }
+
+  /* 5. Cursor Animation */
+  .cursor { animation: blink 1s infinite; }
+  @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
 </style>
 {{ end }}

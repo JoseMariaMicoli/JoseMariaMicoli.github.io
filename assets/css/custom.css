@@ -1,35 +1,53 @@
-/* Force all primary elements to Terminal Green */
-h1, h2, h3, .post-title, .post-date, .post-tags a {
-  color: #00ff41 !important;
+/* 1. GLOBAL FONT */
+html, body, input, textarea, button {
+    font-family: 'Courier New', Courier, monospace !important;
 }
 
-/* Fix the dotted line separator color */
-.header, .footer {
-  border-color: #003b00 !important;
+/* 2. BODY TEXT (Soft Light Grey) */
+.post-content, 
+.post-content p, 
+.entry-summary {
+    color: #a0a0a0 !important;
 }
 
-body {
-  background-color: #0d0208; /* Deeper black for better contrast */
-  color: #00ff41;
+/* 3. TERMINAL PROMPTS (Darker Grey) */
+/* This specifically targets the [xoce@darkarch ~]$ part */
+span[style*="color: #888"], 
+span[style*="color: rgb(136, 136, 136)"],
+.terminal-header span:first-child {
+    color: #666 !important; 
 }
 
-/* Ensure content has breathing room on mobile */
-.content {
-  padding: 0 20px;
-  max-width: 100%;
-  overflow-wrap: break-word; /* Prevents long code/hashes from breaking layout */
+/* 4. RESTORE SYSTEM HEADERS & OUTPUTS */
+/* This ensures the green/cyan lines in your single.html are NOT turned grey */
+.terminal-header div, 
+.terminal-header p,
+.terminal-footer p {
+    color: inherit !important; 
 }
 
-/* Make images (like your Hydra logo) responsive */
-img {
-  max-width: 100%;
-  height: auto;
+/* 5. PROTECT UI ELEMENTS (Green/Red) */
+.terminal-status-bar { color: #ff3e3e !important; }
+.logo-text, .bracket, .logo-container { color: #00ff41 !important; border-color: #00ff41 !important; }
+h1, h2, h3, .post-title, b, strong { color: #00ff41 !important; }
+
+/* 6. RED ALERT HOVER */
+.header__logo a:hover .logo-text,
+.header__logo a:hover .bracket,
+.post-title a:hover,
+.entry-title a:hover {
+    color: #ff3e3e !important;
+    text-shadow: 0 0 10px #8a0303 !important;
 }
 
-/* Ensure the TOP SECRET block fits on phones */
-blockquote {
-  font-size: 0.85rem;
-  margin-left: 0;
-  padding-left: 10px;
-  border-left: 2px solid var(--terminal-green);
+/* 7. PRO-SUITE CYAN PROTECTION */
+/* If the container is set to Cyan, make sure the text follows */
+.terminal-window div[style*="#00e5ff"] p,
+.terminal-window div[style*="#00e5ff"] {
+    color: #00e5ff !important;
+}
+
+.header__logo a:hover .logo-container {
+    border-color: #ff3e3e !important;
+    box-shadow: 0 0 15px rgba(255, 62, 62, 0.3) !important; /* Optional: Adds a subtle red glow */
 }

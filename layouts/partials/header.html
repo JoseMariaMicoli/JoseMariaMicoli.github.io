@@ -27,9 +27,10 @@
   :root {
     --terminal-green: #00ff41;
     --blood-red: #ff3e3e;
+    --dark-red-glow: #8a0303;
   }
 
-  /* Status Bar Centering */
+  /* Centering the status bar */
   .terminal-status-bar {
     display: block;
     width: 100%;
@@ -37,21 +38,26 @@
     margin: 0 auto;
   }
 
+  .header {
+    padding: 10px 0;
+  }
+
   .header__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
   }
 
-  /* LOGO HOVER EFFECT */
+  /* Logo container styles */
   .logo-container {
     display: flex;
     align-items: center;
     border: 2px solid var(--terminal-green);
-    padding: 5px 15px;
+    padding: 5px 10px;
+    width: fit-content;
     margin: 0 auto;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth color shift */
   }
 
   .logo-text, .bracket {
@@ -61,34 +67,33 @@
     transition: all 0.3s ease;
   }
 
-  /* Trigger Red Alert on Logo Hover */
+  /* RED ALERT LOGO HOVER */
   .header__logo a:hover .logo-container {
     border-color: var(--blood-red);
-    box-shadow: 0 0 15px rgba(255, 62, 62, 0.4);
+    box-shadow: 0 0 15px rgba(255, 62, 62, 0.3);
     background: rgba(138, 3, 3, 0.1);
   }
 
   .header__logo a:hover .logo-text, 
   .header__logo a:hover .bracket {
     color: var(--blood-red);
-    text-shadow: 0 0 8px #8a0303;
+    text-shadow: 0 0 8px var(--dark-red-glow);
   }
 
-  /* MENU STYLES */
+  /* Menu logic */
   .menu {
+    display: block !important;
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 
   .menu__inner {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 10px 0;
+    gap: 0;
   }
 
   .menu__inner li {
@@ -100,6 +105,8 @@
     content: "|";
     color: #444;
     margin: 0 15px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
   }
 
   .menu__inner li a {
@@ -107,12 +114,13 @@
     text-transform: uppercase;
     font-size: 0.9rem;
     text-decoration: none;
+    letter-spacing: 1px;
     transition: all 0.2s ease;
   }
 
-  /* Menu Red Hover */
+  /* RED ALERT MENU HOVER */
   .menu__inner li a:hover {
-    color: var(--blood-red);
-    text-shadow: 0 0 8px #8a0303;
+    color: var(--blood-red) !important;
+    text-shadow: 0 0 8px var(--dark-red-glow);
   }
 </style>
