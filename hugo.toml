@@ -15,6 +15,9 @@ theme = 'terminal'
   tag = "tags"
   series = "series"
 
+[permalinks]
+  series = "/series/:slug/" # This forces a clean URL structure
+
 [languages]
   [languages.en]
     languageCode = "en-us"
