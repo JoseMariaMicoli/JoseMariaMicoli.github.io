@@ -8,6 +8,8 @@ coverCaption: "Ghost-Hydra Intelligence: Official Insignia"
 draft: false
 tags: ["Mission", "Red Team", "DarkArch", "Tradecraft"]
 
+---
+
 
 ### I. The Evolution of the Threat
 In the modern landscape, the line between a "security tool" and "adversarial tradecraft" has blurred. While the industry relies on automated scanning and signature-based detection, the true adversary is an engineer. 

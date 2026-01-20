@@ -29,7 +29,6 @@
     --blood-red: #ff3e3e;
   }
 
-  /* Centering the status bar specifically */
   .terminal-status-bar {
     display: block;
     width: 100%;
@@ -37,48 +36,61 @@
     margin: 0 auto;
   }
 
-  /* 1. Reduce the gap at the very top */
-  .header {
-    padding: 10px 0;
-  }
-
   .header__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
   }
 
-  /* 2. Fix the Logo container */
   .logo-container {
     display: flex;
     align-items: center;
     border: 2px solid var(--terminal-green);
     padding: 5px 10px;
-    width: fit-content;
     margin: 0 auto;
   }
 
-  /* 3. Menu logic */
   .menu {
-    display: block !important;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .menu__inner {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 10px 0;
-    gap: 15px;
+  }
+
+  .menu__inner li {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Separator Logic */
+  .menu__inner li:not(:last-child)::after {
+    content: "|";
+    color: #444;
+    margin: 0 15px;
+    font-weight: bold;
   }
 
   .menu__inner li a {
     color: var(--terminal-green);
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+  }
+
+  .menu__inner li a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--terminal-green);
   }
 </style>
