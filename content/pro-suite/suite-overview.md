@@ -1,6 +1,6 @@
 ---
 title: "Featured Tradecraft: Offensive Toolset Overview"
-date: 2026-01-20
+date: 2026-01-25
 categories: ["pro-suite"]
 series: ["Professional Suite"]
 type: "posts"
@@ -25,38 +25,41 @@ draft: false
 <div style="font-family: monospace; color: #00e5ff; background: rgba(0, 229, 255, 0.05); padding: 20px; border-left: 3px solid #00e5ff; margin-bottom: 30px; text-align: left;">
   [xoce@darkarch ~]$ ls -la /opt/ghost-hydra/tradecraft/<br>
   total 7<br>
-  drwxr-xr-x  2 xoce operators  4096 Jan 20 14:00 .<br>
-  -rwxr-xr-x  1 xoce operators  8.2M Jan 20 14:00 hydra-c2<br>
-  -rwxr-xr-x  1 xoce operators  4.1M Jan 20 14:00 vaportrace<br>
-  -rwxr-xr-x  1 xoce operators  2.3M Jan 20 14:00 ghost-pipeline<br>
-  -rwxr-xr-x  1 xoce operators  1.9M Jan 20 14:00 apex-pro<br>
-  -rwxr-xr-x  1 xoce operators  500K Jan 20 14:00 log4shell-poc<br>
-  -rwxr-xr-x  1 xoce operators  1.2M Jan 20 14:00 vectorvue<br>
-  -rwxr-xr-x  1 xoce operators  300K Jan 20 14:00 etherdogsc
+  drwxr-xr-x  2 xoce operators  4096 Jan 25 13:00 .<br>
+  -rwxr-xr-x  1 xoce operators  8.2M Jan 25 13:00 hydra-c2<br>
+  -rwxr-xr-x  1 xoce operators  4.1M Jan 25 13:00 vaportrace<br>
+  -rwxr-xr-x  1 xoce operators  2.3M Jan 25 13:00 ghost-pipeline<br>
+  -rwxr-xr-x  1 xoce operators  3.5M Jan 25 13:00 hydra-worm<br>
+  -rwxr-xr-x  1 xoce operators  500K Jan 25 13:00 log4shell-poc<br>
+  -rwxr-xr-x  1 xoce operators  1.2M Jan 25 13:00 vectorvue<br>
+  -rwxr-xr-x  1 xoce operators  1.9M Jan 25 13:00 apex-pro
 </div>
-
-
 
 ### TOOLSET SPECIFICATIONS
 
 | MODULE | PRIMARY FUNCTION | CORE TECH STACK |
 | :--- | :--- | :--- |
-| **Hydra-C2** | Modular C2 framework for stealth communication and EDR evasion. | Rust / Python / Kotlin |
-| **VaporTrace** | Surgical API Exploitation Suite covering OWASP API Top 10 (2023). | Go |
-| **Ghost-Pipeline** | CI/CD post-exploitation framework targeting OIDC trust relationships. | Python / Shell / Go |
-| **APEX-PRO** | Controlled ransomware simulator for auditing backup integrity and detection thresholds. | C# / Python / PowerShell |
-| **Log4Shell-PoC** | High-fidelity exploitation environment for CVE-2021-44228. | Java / Python |
-| **VectorVue** | Red Team & Penetration Testing Reporting Framework. | Python |
-| **EtherdogsC** | Low-level 802.3 network sniffer for deep-packet analysis. | C |
+| **Hydra-C2** | Multi-headed C2 framework for stealth mobile & desktop telemetry. | Rust / Python / Kotlin |
+| **VaporTrace** | Surgical API Exploitation Suite covering OWASP API Top 10. | Go / SQLite3 |
+| **Ghost-Pipeline** | CI/CD post-exploitation targeting OIDC trust relationships. | Python / Go / Shell |
+| **Hydra-Worm** | Breach simulation with NHPP temporal evasion & DNS tunneling. | Rust / Go |
+| **Log4Shell-PoC** | High-fidelity exploitation & JNDI injection lab (CVE-2021-44228). | Java / LDAP |
+| **VectorVue** | Adversary Reporting Framework with standardized Golden Library. | Python / SQLite |
+| **APEX-PRO** | Ransomware simulation for detection threshold auditing. | C# / PowerShell |
 
 ---
 
 #### 0x01: SYSTEM ARCHITECTURE
-These tools are designed to work as an integrated ecosystem, from initial recon (**VaporTrace**) through to persistence (**Hydra-C2**) and final exfiltration or diversion (**APEX-PRO**).
+The suite functions as an integrated ecosystem designed for the modern attack surface. Reconnaissance begins with **VaporTrace** for API surface mapping, followed by initial access via **Ghost-Pipeline** (OIDC Hijacking) or **Log4Shell**. Persistence is maintained through **Hydra-C2**, while lateral movement and propagation are handled by the **Hydra-Worm** orchestrator. Finally, all findings are industrialized into executive-ready intelligence via **VectorVue**.
+
+
+
+#### 0x02: THE CYAN-OFFENSIVE THEME
+All documented tools in the **Pro-Suite** utilize the `#00e5ff` Cyan Reactive UI. This ensures visual consistency across technical whitepapers, highlighting the transition from standard tradecraft to high-fidelity R&D projects.
 
 <div style="font-family: monospace; color: #00e5ff; background: rgba(0, 229, 255, 0.05); padding: 20px; border-left: 3px solid #00e5ff; margin-top: 30px; text-align: left;">
   [xoce@darkarch ~]$ ghost-hydra --status<br>
   > [ ALL MODULES LOADED ]<br>
-  > [ STANDBY FOR TRANSMISSION ]<br>
+  > [ TRANSMISSION COMPLETE ]<br>
   _
 </div>
