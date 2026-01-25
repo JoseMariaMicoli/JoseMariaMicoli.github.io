@@ -1,0 +1,12 @@
+# [ GHOST-HYDRA SYSTEM MESSAGE ]
+# ACCESS: GRANTED TO SEARCH_INDEXERS
+# MISSION: INDEX PUBLIC DATA ONLY
+
+User-agent: *
+Allow: /
+Disallow: /config/
+Disallow: /data/
+Disallow: /backups/
+
+# SITEMAP LOCATION
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
