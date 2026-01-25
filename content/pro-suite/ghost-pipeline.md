@@ -1,4 +1,4 @@
-```markdown
+
 ---
 title: "[TRUST] Ghost-Pipeline: OIDC Trust Hijacking"
 date: 2026-01-25
@@ -148,9 +148,3 @@ The framework utilizes **Atomic Command Chaining** to ensure credentials persist
 
 ---
 
-### **🛡️ MISSION MANIFESTO**
-
-> "SECURITY IS A PROCESS OF CONSTANT R&D. THE ADVERSARY IS ALWAYS BUILDING; WE MUST BUILD FASTER."
-> **STATUS:** MISSION READY **DOC_ID:** GP-WHITE-PAPER-2026
-
----
