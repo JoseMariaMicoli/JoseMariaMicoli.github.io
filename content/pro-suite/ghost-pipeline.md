@@ -89,13 +89,17 @@ To bypass size limitations where standard HTTP POST requests truncate logs over 
 
 Let  be total log size and  be chunk size (50KB). The number of required segments  is:
 
+$$ N = \lceil S / c \rceil $$
+
 Data is fetched via offset:
+
+$$ O_i = (i-1) \times c \quad \text{for } i \in {1, \dots, N} $$
 
 ### **3. Cryptographic Integrity: 32-Byte Auto-Padding**
 
-The AES-256-GCM implementation provides both authenticity and confidentiality. The framework ensures the master key meets the required 256-bit entropy via sanitization:
+The AES-256-GCM implementation ensures the master key meets the required 256-bit entropy via sanitization:
 
-This guarantees stability across all Golang/Python cross-platform transitions.
+$$ K_{sanitized} = Pad(K, 32) $$
 
 ### **4. Atomic Pivot-Exfiltration**
 
