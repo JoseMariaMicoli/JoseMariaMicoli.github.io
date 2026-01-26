@@ -1,6 +1,33 @@
 {{ define "main" }}
 <div class="terminal-feed" style="text-align: left !important; display: block !important;">
     
+    {{/* SYSTEM INTRODUCTION BLOCK: BAT STYLE */}}
+    <div id="system-intro" style="font-family: 'Courier New', monospace; margin-bottom: 50px; background: rgba(0,0,0,0.2); padding: 15px; border-left: 2px solid #00ff41;">
+        <div style="margin-bottom: 10px;">
+            <span style="color: #00ff41; font-weight: bold;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e; font-weight: bold;">darkarch</span>
+            <span style="color: #ffffff;">:~#</span> <span style="color: #00e5ff;">bat intro.txt</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 35px 1fr; gap: 15px; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 12px 0; background: rgba(0, 229, 255, 0.03);">
+            {{/* LINE NUMBERS */}}
+            <div style="color: #444; text-align: right; user-select: none; border-right: 1px solid #333; padding-right: 10px;">
+                1<br>2<br>3<br>4
+            </div>
+            {{/* CONTENT WITH COLORFUL HIGHLIGHTING */}}
+            <div style="color: #00e5ff;">
+                <span style="color: #ffffff;">[!]</span> <span style="color: #00ff41;">GHOST-HYDRA:</span> Offensive R&D and Adversary Emulation Archive.<br>
+                <span style="color: #ffffff;">[!]</span> <span style="color: #00ff41;">MISSION:</span> Bridging deep-tier exploitation and strategic defense.<br>
+                <span style="color: #ffffff;">[!]</span> <span style="color: #00ff41;">SCOPE:</span> Zero-Trust, Cloud-Native Infiltration, and Custom C2.<br>
+                <span style="color: #ffffff;">[!]</span> <span style="color: #00ff41;">STATUS:</span> <span style="background: #00ff41; color: #000; padding: 0 4px; font-weight: bold;">ACTIVE_TRANSMISSION</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px;">
+            <span style="color: #00ff41; font-weight: bold;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e; font-weight: bold;">darkarch</span>
+            <span style="color: #ffffff;">:~#</span> <span class="cursor" style="color: #00ff41; font-weight: bold;">_</span>
+        </div>
+    </div>
+
     <div class="posts-list">
         {{ range .Paginator.Pages }}
             {{ partial "feed_item.html" . }}
@@ -23,6 +50,11 @@
         </div>
     </div>
 </div>
+
+<style>
+    .cursor { animation: blink 1s infinite; }
+    @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+</style>
 
 <script>
     (function() {
