@@ -1,40 +1,39 @@
 {{ define "main" }}
 <div id="terminal-feed-list" class="terminal-feed" style="text-align: left !important; display: block !important;">
+    
+    <div style="font-family: 'Courier New', monospace; color: #00ff41; margin-bottom: 30px;">
+        <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> cd /archive/{{ .Title | lower }}</p>
+        <p style="margin: 0;">> LISTING_OBJECTS...</p>
+        <div style="border-bottom: 1px dashed #00ff41; width: 100%; margin: 15px 0;"></div>
+    </div>
+
     {{ range .Paginator.Pages }}
-    <article class="post-entry" style="margin-bottom: 40px; text-align: left;">
-        <header>
-            <h2 class="entry-title" style="margin: 0; font-size: 1.4rem;">
-                <a href="{{ .Permalink }}" class="feed-link">
-                    <span class="arrow-icon">></span> {{ .Title }}
-                </a>
-            </h2>
-        </header>
-        <div style="margin: 15px 0; color: #bbb;">{{ .Summary | plainify | truncate 250 }}</div>
-        <footer class="entry-footer">
-            <a href="{{ .Permalink }}" class="intel-link">[ READ FULL INTEL_ ]</a>
-        </footer>
-    </article>
+        {{ partial "feed_item.html" . }}
     {{ end }}
+
 </div>
 
 <style>
-    /* Default Colors */
     #terminal-feed-list .feed-link, 
-    #terminal-feed-list .intel-link { 
+    #terminal-feed-list .intel-link {
         color: #00ff41 !important; 
         text-decoration: none; 
         transition: all 0.2s ease;
     }
     
-    #terminal-feed-list .arrow-icon { color: #888; }
+    #terminal-feed-list .arrow-icon {
+        color: #888;
+        transition: all 0.2s ease;
+    }
 
-    /* RED HOVER OVERRIDE */
     #terminal-feed-list .feed-link:hover, 
     #terminal-feed-list .intel-link:hover { 
         color: #ff3e3e !important; 
         text-shadow: 0 0 8px #8a0303 !important;
     }
-    
-    #terminal-feed-list .feed-link:hover .arrow-icon { color: #ff3e3e !important; }
+
+    #terminal-feed-list .feed-link:hover .arrow-icon {
+        color: #ff3e3e !important;
+    }
 </style>
 {{ end }}

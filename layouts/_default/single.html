@@ -36,7 +36,6 @@
         <div style="border-bottom: 1px dashed #00ff41; width: 100%; margin: 15px 0;"></div>
       </div>
       {{ end }}
-
     </div>
 
     <h1 class="post-title" style="text-transform: uppercase; font-size: 1.5rem; text-align: left; margin: 0;">
@@ -59,35 +58,25 @@
 </div>
 
 <style>
-  /* 1. Base Title Color */
   #single-post-container .single-title-link {
     color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }} !important;
     text-decoration: none !important;
     transition: all 0.2s ease;
   }
 
-  /* 2. RED ALERT HOVER (Targeting the single page title) */
   #single-post-container .single-title-link:hover {
     color: #ff3e3e !important;
     text-shadow: 0 0 10px #8a0303 !important;
   }
 
-  /* 3. Arrow Color Logic */
-  #single-post-container .arrow {
-    color: #666;
-    margin-right: 5px;
-  }
-  #single-post-container .single-title-link:hover .arrow {
-    color: #ff3e3e !important;
-  }
+  #single-post-container .arrow { color: #666; margin-right: 5px; }
+  #single-post-container .single-title-link:hover .arrow { color: #ff3e3e !important; }
 
-  /* 4. Content Headers */
   .post-content h1, .post-content h2, .post-content h3 { 
     text-align: left !important; 
     color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }} !important;
   }
 
-  /* 5. Cursor Animation */
   .cursor { animation: blink 1s infinite; }
   @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
 </style>

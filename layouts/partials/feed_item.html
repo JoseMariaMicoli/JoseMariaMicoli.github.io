@@ -1,0 +1,20 @@
+<article class="post-entry" style="margin-bottom: 40px; display: block; text-align: left;">
+    <header>
+        <h2 class="entry-title" style="margin: 0; font-size: 1.4rem;">
+            <a href="{{ .Permalink }}" class="feed-link">
+                <span class="arrow-icon">></span> {{ .Title }}
+            </a>
+        </h2>
+        <div style="font-family: monospace; font-size: 0.8rem; color: #666; margin-top: 5px;">
+            PUBLISHED: {{ .Date.Format "2006-01-02" }} | STATUS: ARCHIVED
+        </div>
+    </header>
+    <div style="margin: 15px 0; color: #bbb; font-family: 'Courier New', monospace; line-height: 1.5;">
+        {{ .Summary | plainify | truncate 250 }}
+    </div>
+    <footer class="entry-footer">
+        <a href="{{ .Permalink }}" class="intel-link">
+            [ READ FULL INTEL_ ]
+        </a>
+    </footer>
+</article>
