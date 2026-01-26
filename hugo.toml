@@ -44,3 +44,7 @@ theme = 'terminal'
         name = "Legal"
         url = "/license"
         weight = 60
+      [[languages.en.menu.main]]
+        name = "WHOAMI"
+        url = "/whoami/"
+        weight = 5

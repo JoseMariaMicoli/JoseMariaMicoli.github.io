@@ -5,18 +5,18 @@
     {{ end }}
 {{ end }}
 
-<article class="post-entry {{ if $isSuite }}suite-item{{ else }}standard-item{{ end }}" style="margin-bottom: 40px; display: block; text-align: left;">
+<article class="post-entry {{ if $isSuite }}suite-item{{ else }}standard-item{{ end }}">
     <header>
-        <h2 class="entry-title" style="margin: 0; font-size: 1.4rem;">
+        <h2 class="entry-title">
             <a href="{{ .Permalink }}" class="feed-link">
                 <span class="arrow-icon">></span> {{ .Title }}
             </a>
         </h2>
-        <div style="font-family: monospace; font-size: 0.8rem; color: #666; margin-top: 5px;">
+        <div class="post-meta-data">
             PUBLISHED: {{ .Date.Format "2006-01-02" }} | STATUS: {{ if $isSuite }}ENCRYPTED{{ else }}ARCHIVED{{ end }}
         </div>
     </header>
-    <div style="margin: 15px 0; color: #bbb; font-family: 'Courier New', monospace; line-height: 1.5;">
+    <div class="post-summary">
         {{ .Summary | plainify | truncate 250 }}
     </div>
     <footer class="entry-footer">

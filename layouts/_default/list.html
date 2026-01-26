@@ -1,19 +1,19 @@
 {{ define "main" }}
-<div id="terminal-feed-list" class="terminal-feed" style="text-align: left !important; display: block !important;">
+<div id="ghost-hydra-root" class="terminal-feed">
     
-    <div style="font-family: 'Courier New', monospace; color: #00ff41; margin-bottom: 30px;">
-        <p style="margin: 0;"><span style="color: #666;">[xoce@darkarch ~]$</span> cd /archive/{{ .Title | lower }}</p>
-        <p style="margin: 0;">> LISTING_OBJECTS...</p>
+    <div class="terminal-prompt-header" style="color: #00ff41; margin-bottom: 30px;">
+        <p><span style="color: #666;">[xoce@darkarch ~]$</span> cd /archive/{{ .Title | lower }}</p>
+        <p>> LISTING_INTEL_OBJECTS...</p>
         <div style="border-bottom: 1px dashed #00ff41; width: 100%; margin: 15px 0;"></div>
     </div>
 
-    <div class="posts-list">
+    <div class="posts">
         {{ range .Paginator.Pages }}
             {{ partial "feed_item.html" . }}
         {{ end }}
     </div>
 
-    <div style="margin-top: 50px;">
+    <div class="pagination-container">
         {{ partial "pagination.html" . }}
     </div>
 </div>

@@ -1,58 +1,111 @@
-/* 1. GLOBAL FONT & BASE TEXT */
+/* ==========================================================================
+   GHOST-HYDRA INTELLIGENCE SYSTEM - CORE STYLESHEET V4.5
+   TARGET: Full System Parity (Main Feed + Sub-Feeds)
+   ========================================================================== */
+
+/* 1. GLOBAL FONT & UI RESET */
 html, body, input, textarea, button {
     font-family: 'Courier New', Courier, monospace !important;
 }
 
-.post-content, .post-content p, .entry-summary, .post-excerpt {
-    color: #a0a0a0 !important;
-}
-
-/* 2. UI ELEMENTS & PROMPTS */
-.terminal-status-bar { color: #ff3e3e !important; }
-.logo-text, .bracket, .logo-container { color: #00ff41 !important; border-color: #00ff41 !important; }
-
-/* 3. FEED TITLE & LINK SYNCHRONIZATION */
-/* Targeting custom and theme-default classes to override blue/white links */
-.feed-link, 
-.post-title a, 
-.posts-list .post-title a,
-.intel-link {
+/* 2. BASE THEME NEUTRALIZATION */
+/* Kills theme's default borders, padding, and background shifts */
+.post, .posts, .post-title, .entry-title, .on-list {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 0 40px 0 !important;
     text-decoration: none !important;
-    transition: all 0.2s ease !important;
+    color: inherit !important;
 }
 
-/* Default Green State */
-.standard-item .feed-link,
-.standard-item .post-title a,
-.standard-item .intel-link { 
+/* Kill theme's specific yellow dotted line pseudo-element */
+.post-title::after, 
+.entry-title::after, 
+.on-list .post-title::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+}
+
+/* 3. CORE BRANDING (Logo & Status Bar) */
+.terminal-status-bar { color: #ff3e3e !important; }
+.logo-text, .bracket, .logo-container { 
     color: #00ff41 !important; 
+    border-color: #00ff41 !important; 
 }
 
-/* Pro-Suite Cyan State */
-.suite-item .feed-link,
-.suite-item .post-title a,
-.suite-item .intel-link { 
-    color: #00e5ff !important; 
+/* 4. COLOR ENGINE: STANDARD ITEMS (Terminal Green) */
+/* Double-classing reinforces specificity against theme defaults */
+.standard-item.standard-item .feed-link,
+.standard-item.standard-item .intel-link,
+.standard-item.standard-item .entry-title a,
+.standard-item.standard-item .post-title a,
+.standard-item.standard-item .arrow-icon {
+    color: #00ff41 !important;
 }
 
-.arrow-icon { color: #666; transition: all 0.2s ease; }
+/* 5. COLOR ENGINE: PRO-SUITE ITEMS (Reactive Cyan) */
+.suite-item.suite-item .feed-link,
+.suite-item.suite-item .intel-link,
+.suite-item.suite-item .entry-title a,
+.suite-item.suite-item .post-title a {
+    color: #00e5ff !important;
+}
 
-/* 4. THE "RED ALERT" HOVER (Synchronized) */
+/* 6. RED ALERT GLOBAL HOVER SYSTEM */
+/* This triggers for every post entry on any feed list */
 .post-entry:hover .feed-link,
-.post-entry:hover .post-title a,
 .post-entry:hover .intel-link,
-.post-entry:hover .arrow-icon,
-.posts-list .post:hover .post-title a {
+.post-entry:hover .entry-title a,
+.post-entry:hover .post-title a,
+.post-entry:hover .arrow-icon {
     color: #ff3e3e !important;
     text-shadow: 0 0 10px #8a0303 !important;
 }
 
-/* Logo Hover */
+/* 7. CONTENT & META TYPOGRAPHY */
+.post-summary, .post-content p, .entry-summary {
+    color: #a0a0a0 !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 12px 0 !important;
+}
+
+.post-meta-data, .post-meta {
+    color: #666 !important;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* 8. SCROLLBAR CUSTOMIZATION */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #333; }
+::-webkit-scrollbar-thumb:hover { background: #ff3e3e; }
+
+/* 9. GLOBAL UI DECORATIONS */
+.terminal-separator {
+    border-bottom: 1px dashed rgba(0, 255, 65, 0.3);
+    width: 100%;
+    margin: 20px 0;
+}
+
+.cursor { animation: blink 1s infinite; }
+@keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+/* 10. LOGO RED-SHIFT */
 .header__logo a:hover .logo-text,
 .header__logo a:hover .bracket {
     color: #ff3e3e !important;
-    text-shadow: 0 0 10px #8a0303 !important;
+    text-shadow: 0 0 8px #8a0303 !important;
 }
 
-h1, h3, b, strong { color: #00ff41 !important; }
-h2 { color: inherit !important; }
+/* 11. CATEGORY BREADCRUMB SPECIFICITY */
+.terminal-prompt-header p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+/* EOF - DARKARCH SYSTEM STYLES LOADED SUCCESSFULLY - LINE 100 */
