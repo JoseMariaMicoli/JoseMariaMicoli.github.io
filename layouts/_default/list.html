@@ -8,32 +8,17 @@
     </div>
 
     {{ range .Paginator.Pages }}
-    <article class="post-entry" style="margin-bottom: 40px; display: block; text-align: left;">
-        <header>
-            <h2 class="entry-title" style="margin: 0; font-size: 1.4rem;">
-                <a href="{{ .Permalink }}" class="feed-link">
-                    <span class="arrow-icon">></span> {{ .Title }}
-                </a>
-            </h2>
-            <div style="font-family: monospace; font-size: 0.8rem; color: #666; margin-top: 5px;">
-                PUBLISHED: {{ .Date.Format "2006-01-02" }} | STATUS: ARCHIVED
-            </div>
-        </header>
-        <div style="margin: 15px 0; color: #bbb; font-family: 'Courier New', monospace; line-height: 1.5;">
-            {{ .Summary | plainify | truncate 250 }}
-        </div>
-        <footer class="entry-footer">
-            <a href="{{ .Permalink }}" class="intel-link">
-                [ READ FULL INTEL_ ]
-            </a>
-        </footer>
-    </article>
+        {{ partial "feed_item.html" . }}
     {{ end }}
+
+    <div style="margin-top: 50px;">
+        {{ partial "pagination.html" . }}
+    </div>
 
 </div>
 
 <style>
-    /* Default State: Green - Synchronized with Main Feed */
+    /* Synchronized Green Base Style */
     #terminal-feed-list .feed-link, 
     #terminal-feed-list .intel-link {
         color: #00ff41 !important; 
@@ -41,20 +26,18 @@
         transition: all 0.2s ease;
     }
     
-    /* Default Arrow Color */
     #terminal-feed-list .arrow-icon {
         color: #888;
         transition: all 0.2s ease;
     }
 
-    /* RED HOVER STATE - Synchronized with Main Feed */
+    /* Synchronized RED ALERT HOVER STATE */
     #terminal-feed-list .feed-link:hover, 
     #terminal-feed-list .intel-link:hover { 
         color: #ff3e3e !important; 
         text-shadow: 0 0 8px #8a0303 !important;
     }
 
-    /* Force the arrow to turn red on hover */
     #terminal-feed-list .feed-link:hover .arrow-icon {
         color: #ff3e3e !important;
     }
