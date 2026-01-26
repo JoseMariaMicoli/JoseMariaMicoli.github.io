@@ -1,4 +1,11 @@
-<article class="post-entry" style="margin-bottom: 40px; display: block; text-align: left;">
+{{ $isSuite := false }}
+{{ if .Params.categories }}
+    {{ if in .Params.categories "pro-suite" }}
+        {{ $isSuite = true }}
+    {{ end }}
+{{ end }}
+
+<article class="post-entry {{ if $isSuite }}suite-item{{ else }}standard-item{{ end }}" style="margin-bottom: 40px; display: block; text-align: left;">
     <header>
         <h2 class="entry-title" style="margin: 0; font-size: 1.4rem;">
             <a href="{{ .Permalink }}" class="feed-link">

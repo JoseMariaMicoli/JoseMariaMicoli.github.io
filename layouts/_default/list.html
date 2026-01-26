@@ -11,35 +11,25 @@
         {{ partial "feed_item.html" . }}
     {{ end }}
 
-    <div style="margin-top: 50px;">
+    <div style="margin-top: 20px;">
         {{ partial "pagination.html" . }}
     </div>
-
 </div>
 
 <style>
-    /* Synchronized Green Base Style */
-    #terminal-feed-list .feed-link, 
-    #terminal-feed-list .intel-link {
-        color: #00ff41 !important; 
-        text-decoration: none; 
-        transition: all 0.2s ease;
-    }
+    /* Standard Green Theme */
+    #terminal-feed-list .standard-item .feed-link, 
+    #terminal-feed-list .standard-item .intel-link { color: #00ff41 !important; text-decoration: none; transition: all 0.2s ease; }
     
-    #terminal-feed-list .arrow-icon {
-        color: #888;
-        transition: all 0.2s ease;
-    }
+    /* Pro-Suite Cyan Theme */
+    #terminal-feed-list .suite-item .feed-link, 
+    #terminal-feed-list .suite-item .intel-link { color: #00e5ff !important; text-decoration: none; transition: all 0.2s ease; }
 
-    /* Synchronized RED ALERT HOVER STATE */
+    #terminal-feed-list .arrow-icon { color: #888; transition: all 0.2s ease; }
+
+    /* SHARED RED HOVER STATE */
     #terminal-feed-list .feed-link:hover, 
-    #terminal-feed-list .intel-link:hover { 
-        color: #ff3e3e !important; 
-        text-shadow: 0 0 8px #8a0303 !important;
-    }
-
-    #terminal-feed-list .feed-link:hover .arrow-icon {
-        color: #ff3e3e !important;
-    }
+    #terminal-feed-list .intel-link:hover { color: #ff3e3e !important; text-shadow: 0 0 8px #8a0303 !important; }
+    #terminal-feed-list .feed-link:hover .arrow-icon { color: #ff3e3e !important; }
 </style>
 {{ end }}

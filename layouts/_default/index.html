@@ -10,7 +10,7 @@
     <div class="bottom-system-section">
         <div style="color: #ff3e3e; text-shadow: 0 0 5px #8a0303; font-family: 'Courier New', monospace; margin-bottom: 15px; font-weight: bold;">
             <p style="margin: 0;"><span style="color: #888;">[xoce@darkarch ~]$</span> ls -la /var/log/intel/internal_feed</p>
-            <p style="margin: 0;">total {{ len .Paginator.Pages }} objects detected</p>
+            <p style="margin: 0;">total {{ len .Site.RegularPages }} objects detected</p>
         </div>
         <div id="active-log-monitor" style="border: 1px solid #ff3e3e; background: rgba(10, 0, 0, 0.95); box-shadow: 0 0 15px rgba(138, 3, 3, 0.2);">
             <div style="background: rgba(255, 62, 62, 0.15); padding: 8px 15px; font-family: monospace; color: #ff3e3e; font-size: 0.8rem; border-bottom: 1px solid #ff3e3e;">
@@ -23,27 +23,20 @@
 </div>
 
 <style>
-    #terminal-feed-main .feed-link, 
-    #terminal-feed-main .intel-link {
-        color: #00ff41 !important; 
-        text-decoration: none; 
-        transition: all 0.2s ease;
-    }
+    /* Standard Green Theme */
+    #terminal-feed-main .standard-item .feed-link, 
+    #terminal-feed-main .standard-item .intel-link { color: #00ff41 !important; text-decoration: none; transition: all 0.2s ease; }
     
-    #terminal-feed-main .arrow-icon {
-        color: #888;
-        transition: all 0.2s ease;
-    }
+    /* Pro-Suite Cyan Theme */
+    #terminal-feed-main .suite-item .feed-link, 
+    #terminal-feed-main .suite-item .intel-link { color: #00e5ff !important; text-decoration: none; transition: all 0.2s ease; }
 
+    #terminal-feed-main .arrow-icon { color: #888; transition: all 0.2s ease; }
+
+    /* SHARED RED HOVER STATE */
     #terminal-feed-main .feed-link:hover, 
-    #terminal-feed-main .intel-link:hover { 
-        color: #ff3e3e !important; 
-        text-shadow: 0 0 8px #8a0303 !important;
-    }
-
-    #terminal-feed-main .feed-link:hover .arrow-icon {
-        color: #ff3e3e !important;
-    }
+    #terminal-feed-main .intel-link:hover { color: #ff3e3e !important; text-shadow: 0 0 8px #8a0303 !important; }
+    #terminal-feed-main .feed-link:hover .arrow-icon { color: #ff3e3e !important; }
 
     .cursor { animation: blink 1s infinite; }
     @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
