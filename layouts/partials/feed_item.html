@@ -20,7 +20,7 @@
         {{ .Summary | plainify | truncate 250 }}
     </div>
     <footer class="entry-footer">
-        <a href="{{ .Permalink }}" class="intel-link">
+        <a href="{{ .Permalink }}" class="intel-link" style="color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }} !important; text-decoration: none;">
             [ READ FULL INTEL_ ]
         </a>
     </footer>
