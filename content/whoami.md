@@ -79,8 +79,11 @@ I execute engagements through a research-driven cycle I call **4D Infiltration**
 
 ## 📝 REPORTING PHILOSOPHY & THREAT INTEL
 
-### 📊 MITRE ATT&CK® Mapping
-Every finding is cross-referenced with specific Tactics and Techniques to help the SOC identify detection gaps.
+Every engagement is concluded with high-impact technical and executive documentation strictly following the **NIST SP 800-61 R3 lifecycle**. My reports bridge the gap between exploitation and remediation by providing:
+
+* **MITRE ATT&CK Mapping:** Every finding is cross-referenced with specific Tactics and Techniques to help the SOC identify detection gaps.
+* **OWASP Risk Scoring:** Web and API vulnerabilities are prioritized using OWASP Top 10 and API:2023 risk impact assessments.
+* **Comprehensive IoC Tables:** Every mission includes a detailed table of Indicators of Compromise (IoCs) to facilitate rapid **Containment, Eradication, and Recovery**.
 
 
 
