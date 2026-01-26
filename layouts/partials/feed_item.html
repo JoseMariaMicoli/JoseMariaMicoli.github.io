@@ -13,14 +13,14 @@
             </a>
         </h2>
         <div style="font-family: monospace; font-size: 0.8rem; color: #666; margin-top: 5px;">
-            PUBLISHED: {{ .Date.Format "2006-01-02" }} | STATUS: ARCHIVED
+            PUBLISHED: {{ .Date.Format "2006-01-02" }} | STATUS: {{ if $isSuite }}ENCRYPTED{{ else }}ARCHIVED{{ end }}
         </div>
     </header>
     <div style="margin: 15px 0; color: #bbb; font-family: 'Courier New', monospace; line-height: 1.5;">
         {{ .Summary | plainify | truncate 250 }}
     </div>
     <footer class="entry-footer">
-        <a href="{{ .Permalink }}" class="intel-link" style="color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }} !important; text-decoration: none;">
+        <a href="{{ .Permalink }}" class="intel-link">
             [ READ FULL INTEL_ ]
         </a>
     </footer>

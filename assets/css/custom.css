@@ -1,55 +1,59 @@
-/* 1. GLOBAL FONT */
+/* 1. GLOBAL FONT & BODY */
 html, body, input, textarea, button {
     font-family: 'Courier New', Courier, monospace !important;
 }
 
-/* 2. BODY TEXT (Soft Light Grey) */
-.post-content, 
-.post-content p, 
-.entry-summary {
+.post-content, .post-content p, .entry-summary, .post-excerpt {
     color: #a0a0a0 !important;
 }
 
-/* 3. TERMINAL PROMPTS (Darker Grey) */
-span[style*="color: #888"], 
-span[style*="color: rgb(136, 136, 136)"],
-.terminal-header span:first-child {
-    color: #666 !important; 
-}
-
-/* 4. RESTORE SYSTEM HEADERS & OUTPUTS */
-.terminal-header div, 
-.terminal-header p,
-.terminal-footer p {
-    color: inherit !important; 
-}
-
-/* 5. PROTECT UI ELEMENTS & FEED TITLES */
+/* 2. UI ELEMENTS */
 .terminal-status-bar { color: #ff3e3e !important; }
 .logo-text, .bracket, .logo-container { color: #00ff41 !important; border-color: #00ff41 !important; }
 
-/* Target the links inside the titles specifically to override theme defaults */
-.feed-link, .post-title a, .entry-title a {
+/* 3. FEED TITLE & LINK OVERRIDES (Synchronized for all feeds) */
+/* This targets both your custom classes and the theme's default list classes */
+.feed-link, 
+.post-title a, 
+.posts-list .post-title a,
+.intel-link {
     text-decoration: none !important;
     transition: all 0.2s ease !important;
 }
 
-/* Default Green for Standard Items */
-.standard-item .feed-link { color: #00ff41 !important; }
+/* Default Green State */
+.standard-item .feed-link,
+.standard-item .post-title a,
+.standard-item .intel-link { 
+    color: #00ff41 !important; 
+}
 
-/* Cyan for Pro-Suite Items */
-.suite-item .feed-link { color: #00e5ff !important; }
+/* Pro-Suite Cyan State */
+.suite-item .feed-link,
+.suite-item .post-title a,
+.suite-item .intel-link { 
+    color: #00e5ff !important; 
+}
 
-/* 6. RED ALERT HOVER (Global for all feeds) */
+.arrow-icon { color: #666; transition: all 0.2s ease; }
+
+/* 4. GLOBAL RED ALERT HOVER */
+/* Triggers when hovering the title link OR the entire article block */
 .post-entry:hover .feed-link,
+.post-entry:hover .post-title a,
 .post-entry:hover .intel-link,
 .post-entry:hover .arrow-icon,
+.posts-list .post:hover .post-title a {
+    color: #ff3e3e !important;
+    text-shadow: 0 0 10px #8a0303 !important;
+}
+
+/* Logo Hover */
 .header__logo a:hover .logo-text,
 .header__logo a:hover .bracket {
     color: #ff3e3e !important;
     text-shadow: 0 0 10px #8a0303 !important;
 }
 
-/* Ensure bold/strong elements stay green unless hovered */
 h1, h3, b, strong { color: #00ff41 !important; }
-h2 { color: inherit; } /* Allow the .feed-link inside to control color */
+h2 { color: inherit !important; }
