@@ -1,4 +1,4 @@
-/* 1. GLOBAL FONT & BODY */
+/* 1. GLOBAL FONT & BASE TEXT */
 html, body, input, textarea, button {
     font-family: 'Courier New', Courier, monospace !important;
 }
@@ -7,12 +7,12 @@ html, body, input, textarea, button {
     color: #a0a0a0 !important;
 }
 
-/* 2. UI ELEMENTS */
+/* 2. UI ELEMENTS & PROMPTS */
 .terminal-status-bar { color: #ff3e3e !important; }
 .logo-text, .bracket, .logo-container { color: #00ff41 !important; border-color: #00ff41 !important; }
 
-/* 3. FEED TITLE & LINK OVERRIDES (Synchronized for all feeds) */
-/* This targets both your custom classes and the theme's default list classes */
+/* 3. FEED TITLE & LINK SYNCHRONIZATION */
+/* Targeting custom and theme-default classes to override blue/white links */
 .feed-link, 
 .post-title a, 
 .posts-list .post-title a,
@@ -37,8 +37,7 @@ html, body, input, textarea, button {
 
 .arrow-icon { color: #666; transition: all 0.2s ease; }
 
-/* 4. GLOBAL RED ALERT HOVER */
-/* Triggers when hovering the title link OR the entire article block */
+/* 4. THE "RED ALERT" HOVER (Synchronized) */
 .post-entry:hover .feed-link,
 .post-entry:hover .post-title a,
 .post-entry:hover .intel-link,
