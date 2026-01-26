@@ -104,6 +104,20 @@ Every finding is cross-referenced with specific Tactics and Techniques to help t
     * **Portuguese:** Native
     * **Russian:** A1 - Learning
 
+---
+## 📡 SECURE COMMUNICATION CHANNELS
+
+To initiate a secure exchange or request technical consultation, utilize the following non-attributable channel. All communications are treated with the **Hydra-Redundancy** protocol.
+
+### PRIMARY DIRECTIVE: ENCRYPTED UPLINK
+* **EMAIL:** [ghost-hydra@proton.me](mailto:ghost-hydra@proton.me)
+* **ENCRYPTION:** `PGP_REQUIRED` (Proton-to-Proton native encryption active)
+* **STATUS:** `MONITORED_IN_SHADOW_MODE`
+
+> **OPERATOR NOTE:** For high-sensitivity intelligence disclosure, ensure the subject line follows the `[INTEL-ID: XXXX]` format to bypass automated noise filters.
+
+---
+
 <div class="terminal-footer" style="margin-top: 50px;">
     <div style="border-top: 1px dashed #00ff41; padding-top: 15px;"></div>
     <div style="margin-bottom: 5px;">
