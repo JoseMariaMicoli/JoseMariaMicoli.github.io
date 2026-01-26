@@ -19,7 +19,7 @@ showFullContent: true
 <div class="terminal-header" style="display: block !important;">
     <div style="margin-bottom: 5px;">
         <span class="term-user">xoce</span><span class="term-at">@</span><span class="term-host">darkarch</span>
-        <span class="term-path">:~#</span> <span style="color: #00e5ff;">finger xoce --identity-split</span>
+        <span class="term-path">:~#</span> <span style="color: #00e5ff;">whoami --identity-split --detail</span>
     </div>
     <div style="color: #00ff41;">> ACCESSING_PERSONA_DATABASE...</div>
     <div style="color: #00ff41;">> IDENTITY_STATE: [ JOSÉ MARÍA MICOLI ] ⇌ [ OPERATOR XOCE ]</div>
@@ -65,13 +65,15 @@ I execute engagements through a research-driven cycle I call **4D Infiltration**
 ## ⚙️ TECHNICAL CORE & ADVERSARIAL R&D
 
 ### 🛡️ Offensive Engineering & Adversary Emulation
-* **Custom Tradecraft:** Architecting stealth agents in **Rust** and high-concurrency C2 orchestrators in **Go** to bypass EDR/XDR heuristics.
-* **Temporal Evasion:** Implementing **NHPP-based stochastic jitter** and non-standard protocol tunneling (DNS, ICMP, gRPC).
-* **Active Directory & Infrastructure:** On-prem AD (Kerberoasting, GPO, Bloodhound) and Azure AD identity hijacking.
+* **Custom Tradecraft:** Architecting stealth agents in **Rust** and high-concurrency C2 orchestrators in **Go** to bypass EDR/XDR behavioral heuristics and kernel hooks.
+* **Temporal Evasion:** Implementing **NHPP-based stochastic jitter** and non-standard protocol tunneling (DNS, ICMP, gRPC) for resilient, low-observable persistence.
+* **Active Directory & Infrastructure:** On-prem AD exploitation (Kerberoasting, GPO, Bloodhound), Azure AD/Entra ID identity hijacking, and Network/VLAN pivoting.
+* **Offensive R&D:** Deep-tier Binary Analysis & Reverse Engineering of closed-source drivers and binaries to identify zero-day vulnerabilities or bypass security hooks.
 
 ### 🌐 AppSec, Web & Cloud Surface Discovery
-* **API Security Research:** Specialist in Shadow API mining and **OIDC/OAuth2** trust model bypass.
-* **Mobile Security:** Expert Android Pentesting and APK/SDK reverse engineering (**JADX, Ghidra**).
+* **API Security Research:** Specialist in Shadow API mining and bypass of modern **OIDC/OAuth2** trust models (REST/GraphQL), fully aligned with **OWASP Top 10 API:2023** (BOLA, BFLA, Broken Authentication).
+* **Web & Cloud:** High-fidelity testing of Web Applications (aligned with OWASP Top 10 and ASVS) and Cloud-native environments (AWS/Azure/GCP), including CI/CD pipeline auditing (GitHub Actions/OIDC hijacking).
+* **Mobile Security & Reverse Engineering:** Expert Android Pentesting, specializing in APK/SDK reverse engineering (**JADX, Ghidra**), bypassing SSL pinning, and native C++ code analysis to identify memory corruption or hardcoded secrets.
 
 ---
 
