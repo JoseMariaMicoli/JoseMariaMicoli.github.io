@@ -1,53 +1,71 @@
 {{ define "main" }}
-<div class="terminal-feed" style="text-align: left !important; display: block !important;">
-    
-    {{/* HEADER LOGIC: Standard vs Pro-Suite vs WHOAMI */}}
-    {{ $isSuite := in .Params.categories "pro-suite" }}
-
-    <header class="terminal-header" style="font-family: 'Courier New', monospace; margin-bottom: 30px;">
-        {{ if eq .Title "WHOAMI" }}
-            <div style="margin-bottom: 5px;">
-                <span style="color: #00ff41; font-weight: bold;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e; font-weight: bold;">darkarch</span>
-                <span style="color: #ffffff;">:~#</span> <span style="color: #00e5ff;">whoami --identity-split --detail</span>
-            </div>
-        {{ else if $isSuite }}
-            <div style="color: #00e5ff !important;">
-                <p style="margin: 0;"><span style="color: #00ff41;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e;">darkarch</span><span style="color: #ffffff;">:~$</span> ./ghost-hydra-suite --initialize</p>
-                <p style="margin: 0;">> [ LOADED MODULES: 7/7 STABLE ]</p>
-                <p style="margin: 0;"><span style="color: #00ff41;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e;">darkarch</span><span style="color: #ffffff;">:~$</span> ghost-suite --check-integrity</p>
-                <p style="margin: 0;">> SIGNATURE: Jose Maria Micoli (Verified)</p>
-            </div>
-        {{ else }}
-            <div style="color: #00ff41 !important;">
-                <p style="margin: 0;"><span style="color: #00ff41;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e;">darkarch</span><span style="color: #ffffff;">:~$</span> cat /proc/ghost-hydra/classification</p>
-                <p style="margin: 0;">> CLASSIFICATION: LEVEL 4 TOP SECRET</p>
-            </div>
+<div id="single-post-container" class="terminal-window" style="padding: 20px; border: 1px solid #333; background: rgba(0,0,0,0.5);">
+  <header class="terminal-header">
+    <div style="font-family: 'Courier New', monospace; line-height: 1.4; text-align: left !important; margin-bottom: 20px;">
+      
+      {{ $isSuite := false }}
+      {{ if .Params.categories }}
+        {{ if in .Params.categories "pro-suite" }}
+          {{ $isSuite = true }}
         {{ end }}
-        
-        <div style="border-bottom: 1px dashed {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }}; width: 100%; margin: 15px 0;"></div>
-        
-        <h1 class="post-title" style="color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }}; text-transform: uppercase; font-size: 1.8rem; margin: 20px 0;">
-            {{ .Title }}
-        </h1>
+      {{ end }}
+
+      {{/* LOGIC: SPECIAL WHOAMI IDENTITY SPLIT */}}
+      {{ if eq .Title "WHOAMI" }}
+        <div style="margin-bottom: 5px;">
+          <span style="color: #00ff41; font-weight: bold;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e; font-weight: bold;">darkarch</span>
+          <span style="color: #ffffff;">:~#</span> <span style="color: #00e5ff;">whoami --identity-split --detail</span>
+        </div>
+        <div style="color: #00ff41;">> ACCESSING_PERSONA_DATABASE... [OK]</div>
+        <div style="color: #00ff41;">> IDENTITY_STATE: [ JOSÉ MARÍA MICOLI ] ⇌ [ OPERATOR XOCE ]</div>
+      
+      {{/* LOGIC: PRO-SUITE CYAN THEME */}}
+      {{ else if $isSuite }}
+        <div style="color: #00e5ff !important;">
+          <p style="margin: 0;"><span style="color: #00ff41;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e;">darkarch</span><span style="color: #ffffff;">:~$</span> <span style="color: #00e5ff;">./ghost-hydra-suite --initialize</span></p>
+          <p style="margin: 0;">> [ LOADED MODULES: 7/7 STABLE ]</p>
+          <p style="margin: 0;"><span style="color: #00ff41;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e;">darkarch</span><span style="color: #ffffff;">:~$</span> <span style="color: #00e5ff;">ghost-suite --check-integrity</span></p>
+          <p style="margin: 0;">> SIGNATURE: Jose Maria Micoli (Verified)</p>
+        </div>
+
+      {{/* LOGIC: STANDARD GREEN THEME */}}
+      {{ else }}
+        <div style="color: #00ff41 !important;">
+          <p style="margin: 0;"><span style="color: #00ff41;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e;">darkarch</span><span style="color: #ffffff;">:~$</span> cat /proc/ghost-hydra/classification</p>
+          <p style="margin: 0;">> CLASSIFICATION: LEVEL 4 TOP SECRET</p>
+        </div>
+      {{ end }}
+      
+      <div style="border-bottom: 1px dashed {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }}; width: 100%; margin: 15px 0;"></div>
+      
+      <h1 class="post-title" style="margin-top: 20px;">
+        <a href="{{ .Permalink }}" class="single-title-link" style="color: {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }} !important; text-decoration: none;">
+          <span class="arrow">></span> {{ .Title }}
+        </a>
+      </h1>
     </header>
 
-    <article class="post-content" style="color: #a0a0a0; line-height: 1.6;">
-        {{ .Content }}
-    </article>
+    <div class="post-content" style="text-align: left; margin-top: 30px; color: #a0a0a0;">
+      {{ .Content }}
+    </div>
 
-    {{/* GLOBAL TERMINAL FOOTER */}}
-    <footer class="terminal-footer" style="margin-top: 50px; font-family: 'Courier New', monospace;">
-        <div style="border-top: 1px dashed {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }}; padding-top: 15px;"></div>
-        <p style="margin: 0; color: #666;">> [ SESSION_TERMINATED ]</p>
-        <p style="margin: 0;">
-            <span style="color: #00ff41;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e;">darkarch</span>
-            <span style="color: #ffffff;">:~$</span> <span class="cursor" style="color: #00ff41;">_</span>
-        </p>
+    <footer class="terminal-footer" style="font-family: 'Courier New', monospace; margin-top: 40px; text-align: left;">
+      <div style="border-top: 1px dashed {{ if $isSuite }}#00e5ff{{ else }}#00ff41{{ end }}; width: 100%; margin: 15px 0;"></div>
+      <p style="margin: 0; color: #666;">> [ SESSION_TERMINATED ]</p>
+      <p style="margin: 0;">
+          <span style="color: #00ff41;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e;">darkarch</span>
+          <span style="color: #ffffff;">:~$</span> <span class="cursor" style="color: #00ff41;">_</span>
+      </p>
     </footer>
 </div>
 
 <style>
     .cursor { animation: blink 1s infinite; }
     @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+    
+    #single-post-container .single-title-link:hover {
+        color: #ff3e3e !important;
+        text-shadow: 0 0 10px #8a0303 !important;
+    }
 </style>
 {{ end }}

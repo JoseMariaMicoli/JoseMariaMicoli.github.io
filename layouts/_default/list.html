@@ -1,23 +1,25 @@
 {{ define "main" }}
-<div id="ghost-hydra-root" class="terminal-feed">
-    
-    <div class="terminal-prompt-header" style="font-family: 'Courier New', monospace; margin-bottom: 30px;">
-        <p>
-            <span style="color: #00ff41; font-weight: bold;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e; font-weight: bold;">darkarch</span>
-            <span style="color: #ffffff;">:~$</span> <span style="color: #00e5ff;">cd /archive/{{ .Title | lower }}</span>
-        </p>
-        <p style="color: #00ff41;">> LISTING_INTEL_OBJECTS...</p>
-        <div style="border-bottom: 1px dashed #00ff41; width: 100%; margin: 15px 0;"></div>
-    </div>
+<div class="terminal-window" style="padding: 20px; border: 1px solid #333; background: rgba(0,0,0,0.5);">
+    <div id="ghost-hydra-root" class="terminal-feed">
+        
+        <div class="terminal-prompt-header" style="font-family: 'Courier New', monospace; margin-bottom: 30px;">
+            <p>
+                <span style="color: #00ff41; font-weight: bold;">xoce</span><span style="color: #666;">@</span><span style="color: #ff3e3e; font-weight: bold;">darkarch</span>
+                <span style="color: #ffffff;">:~$</span> <span style="color: #00e5ff;">cd /archive/{{ .Title | lower }}</span>
+            </p>
+            <p style="color: #00ff41;">> LISTING_INTEL_OBJECTS...</p>
+            <div style="border-bottom: 1px dashed #00ff41; width: 100%; margin: 15px 0;"></div>
+        </div>
 
-    <div class="posts">
-        {{ range .Paginator.Pages }}
-            {{ partial "feed_item.html" . }}
-        {{ end }}
-    </div>
+        <div class="posts">
+            {{ range .Paginator.Pages }}
+                {{ partial "feed_item.html" . }}
+            {{ end }}
+        </div>
 
-    <div class="pagination-container">
-        {{ partial "pagination.html" . }}
+        <div class="pagination-container">
+            {{ partial "pagination.html" . }}
+        </div>
     </div>
 </div>
 {{ end }}
