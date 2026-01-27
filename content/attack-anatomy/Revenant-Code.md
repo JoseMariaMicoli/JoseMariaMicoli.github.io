@@ -256,3 +256,105 @@ However, the **Moral of the Story** of Operation Revenant-Code is the most criti
 **Final Takeaway:** In the modern landscape, you cannot buy back integrity. Once data leaves your perimeter, it belongs to the shadows forever.
 
 ---
+---
+
+
+### **[ADDENDUM: ADVERSARIAL INTELLIGENCE MAPPING]**
+
+#### **I. MITRE ATT&CK® Matrix (Mission Execution)**
+
+Every tactic used during Operation Revenant-Code is mapped below to assist Blue Teams in identifying detection gaps.
+
+| Tactic | Technique ID | Technique Name | Mission Application |
+| --- | --- | --- | --- |
+| **Reconnaissance** | T1592 | Gather Victim Host Info | Scanning vpn.aegishealth.com for MFA/VPN vulnerabilities.
+
+ |
+| **Initial Access** | T1566.003 | Phishing: Spearphishing Link | Browser-in-the-Browser (BitB) orchestration via SQL forum.
+
+ |
+| **Persistence** | T1546.003 | Event Triggered Execution: WMI Event Subscription | Hijacking internal build-runners and WMI subscriptions.
+
+ |
+| **Evasion** | T1055.012 | Process Injection: Process Hollowing | Injecting "Weaver" agent shellcode into `svchost.exe`.
+
+ |
+| **Lateral Movement** | T1558.003 | Steal or Forge Kerberos Tickets: Kerberoasting | Harvesting `svc_sql_admin` TGS via Project Firewheel.
+
+ |
+| **Exfiltration** | T1041 | Exfiltration Over C2 Channel | 50MB encrypted blobs siphoned via fragmented azcopy.
+
+ |
+| **Impact** | T1486 | Data Encrypted for Impact | Deployment of Cinder-Scythe RaaS for "Scorched Earth" diversion.
+
+ |
+
+---
+
+#### **II. OWASP Risk Scoring (API & Identity)**
+
+Based on the exploitation of AegisHealth’s OIDC and SQL infrastructure, the following risks are prioritized.
+
+* **API1:2023 - Broken Object Level Authorization (BOLA)**: Exploited to dump 300GB of ePHI once the service account was compromised. **Risk: CRITICAL.** 
+
+
+* **API2:2023 - Broken Authentication**: Bypass of SMS-based 2FA via SIM-swapping and BitB session hijacking. **Risk: CRITICAL.** 
+
+
+* **API6:2023 - Unrestricted Access to Sensitive Business Flows**: Abuse of legitimate Azure Backup (azcopy) to mask massive data exfiltration. **Risk: HIGH.** 
+
+
+
+---
+
+#### **III. Comprehensive Indicators of Compromise (IoCs)**
+
+Blue Teams should audit their environments for these specific artifacts.
+
+| Artifact Type | Specification | Purpose |
+| --- | --- | --- |
+| **Network** | `https://telemetry.aegishealth.com/v1/sync` | C2 Heartbeat masquerading as medical telemetry.
+
+ |
+| **Network** | User-Agent: `AegisHealth-Monitor/2.4.1` | Hardcoded C2 traffic identifier.
+
+ |
+| **Registry** | `HKLM\SOFTWARE\Policies\Microsoft\Windows Defender` | DisableAntiSpyware set to `1` via GPO.
+
+ |
+| **File (Hash)** | `REVENANT_CODE_SECRET_KEY_2026_!!` | Custom AES-256-GCM encryption key used in Weaver payloads.
+
+ |
+| **Identity** | `svc_sql_admin` | Service account hijacked for lateral movement and SQL dump.
+
+ |
+
+---
+
+#### **IV. DFIR Template: NIST SP 800-61r3 Alignment**
+
+To be used for the Post-Mortem section of the blog and PDF.
+
+1. 
+**Preparation**: AegisHealth lacked hardware-backed MFA and CI/CD integrity checks.
+
+
+2. 
+**Detection & Analysis**: Initial alert triggered by BitB SSL mismatch was ignored due to "Scenario Branching" evasion.
+
+
+3. **Containment, Eradication, & Recovery**:
+* 
+**Short-term**: Revoke `svc_sql_admin` tokens and rotate GPO administrative keys.
+
+
+* 
+**Long-term**: Implementation of Build-Integrity Attestation to stop "Weaver" agent injection.
+
+
+
+
+4. 
+**Post-Incident Activity**: Identification of data leakage on **Babel-Market** 14 days after ransom payment.
+
+---
