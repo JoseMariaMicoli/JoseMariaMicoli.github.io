@@ -8,7 +8,7 @@ theme = 'terminal'
   author = "J.M. Micoli"
   logoText = "GHOST-HYDRA INTELLIGENCE" 
   # Favicon path relative to the static folder
-  favicon = "images/favicon.ico"
+  favicon = "favicon.ico"
 
 [taxonomies]
   category = "categories"
