@@ -7,7 +7,6 @@ theme = 'terminal'
   contentTypeName = "posts"
   author = "J.M. Micoli"
   logoText = "GHOST-HYDRA INTELLIGENCE" 
-  # Favicon path relative to the static folder
   favicon = "favicon.ico"
 
 [taxonomies]
@@ -22,31 +21,49 @@ theme = 'terminal'
   [languages.en]
     languageCode = "en-us"
     [languages.en.menu]
-      [[languages.en.menu.main]]
-        name = "Manifesto"
-        url = "/posts/manifesto"
-        weight = 10
-      [[languages.en.menu.main]]
-        name = "Cyber Attack Anatomy"
-        url = "/series/anatomy-of-an-attack"
-        weight = 20
-      [[languages.en.menu.main]]
-        name = "RED-TEAM Professional Suite"
-        url = "/categories/pro-suite/"
-        weight = 30
-      [[languages.en.menu.main]]
-        name = "ExploitDevLog"
-        url = "/categories/devlog/"
-        weight = 40
-      [[languages.en.menu.main]]
-        name = "Intel Feed"
-        url = "/posts"
-        weight = 50
-      [[languages.en.menu.main]]
-        name = "Legal"
-        url = "/license"
-        weight = 60
+      # 05 - Identity & Entry Point
       [[languages.en.menu.main]]
         name = "WHOAMI"
         url = "/whoami/"
         weight = 5
+      
+      # 10 - Core Philosophy (Manifesto)
+      [[languages.en.menu.main]]
+        name = "Manifesto"
+        url = "/posts/manifesto"
+        weight = 10
+
+      # 15 - NEW: HTB Audit Feed & Professional Reports
+      [[languages.en.menu.main]]
+        name = "HTB Audit Log"
+        url = "/htb-reports/"
+        weight = 15
+
+      # 20 - Tactical Analysis
+      [[languages.en.menu.main]]
+        name = "Cyber Attack Anatomy"
+        url = "/series/anatomy-of-an-attack"
+        weight = 20
+
+      # 30 - Tooling & R&D
+      [[languages.en.menu.main]]
+        name = "RED-TEAM Professional Suite"
+        url = "/categories/pro-suite/"
+        weight = 30
+
+      [[languages.en.menu.main]]
+        name = "ExploitDevLog"
+        url = "/categories/devlog/"
+        weight = 40
+
+      # 50 - General Intelligence
+      [[languages.en.menu.main]]
+        name = "Intel Feed"
+        url = "/posts"
+        weight = 50
+
+      # 60 - Compliance & Governance
+      [[languages.en.menu.main]]
+        name = "Legal"
+        url = "/license"
+        weight = 60
