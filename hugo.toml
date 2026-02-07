@@ -4,7 +4,7 @@ theme = 'terminal'
 
 [params]
   themeColor = "green"
-  # Setting this to "posts" tells the theme where to find main blog content
+  # Terminal uses this to filter the homepage feed
   contentTypeName = "posts" 
   author = "J.M. Micoli"
   logoText = "GHOST-HYDRA INTELLIGENCE" 
@@ -24,33 +24,39 @@ theme = 'terminal'
     [languages.en.menu]
       [[languages.en.menu.main]]
         name = "WHOAMI"
-        url = "/whoami/"
+        url = "/whoami"
         weight = 5
+
       [[languages.en.menu.main]]
         name = "Manifesto"
         url = "/posts/manifesto"
         weight = 10
-      # Add this entry for your walkthroughs
+
       [[languages.en.menu.main]]
         name = "HTB Audit Log"
-        url = "/htb-reports/"
+        url = "/htb-reports"
         weight = 15
+
       [[languages.en.menu.main]]
         name = "Cyber Attack Anatomy"
-        url = "/series/anatomy-of-an-attack"
+        url = "/attack-anatomy"
         weight = 20
+
       [[languages.en.menu.main]]
         name = "RED-TEAM Professional Suite"
-        url = "/categories/pro-suite/"
+        url = "/pro-suite"
         weight = 30
+
       [[languages.en.menu.main]]
         name = "ExploitDevLog"
-        url = "/categories/devlog/"
+        url = "/devlog"
         weight = 40
+
       [[languages.en.menu.main]]
         name = "Intel Feed"
         url = "/posts"
         weight = 50
+
       [[languages.en.menu.main]]
         name = "Legal"
         url = "/license"
