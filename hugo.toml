@@ -2,9 +2,12 @@ baseURL = 'https://JoseMariaMicoli.github.io/'
 title = 'Ghost-Hydra Intelligence'
 theme = 'terminal'
 
+# Add these two lines to help Hugo find assets in parent folders
+canonifyURLs = true
+relativeURLs = true
+
 [params]
   themeColor = "green"
-  # This ensures the home page shows your latest posts
   contentTypeName = "posts" 
   author = "J.M. Micoli"
   logoText = "GHOST-HYDRA INTELLIGENCE" 
@@ -14,10 +17,6 @@ theme = 'terminal'
   category = "categories"
   tag = "tags"
   series = "series"
-
-[permalinks]
-  # This makes the URL for your reports cleaner
-  htb-reports = "/htb-reports/:filename/"
 
 [languages]
   [languages.en]
