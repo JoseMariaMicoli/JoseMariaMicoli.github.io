@@ -4,7 +4,7 @@ theme = 'terminal'
 
 [params]
   themeColor = "green"
-  # Terminal uses this to filter the homepage feed
+  # This filters what appears on the homepage feed
   contentTypeName = "posts" 
   author = "J.M. Micoli"
   logoText = "GHOST-HYDRA INTELLIGENCE" 
