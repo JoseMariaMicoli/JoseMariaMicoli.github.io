@@ -4,7 +4,6 @@ theme = 'terminal'
 
 [params]
   themeColor = "green"
-  # Terminal usa 'posts' para mostrar el contenido en la home
   contentTypeName = "posts" 
   author = "J.M. Micoli"
   logoText = "GHOST-HYDRA INTELLIGENCE" 
