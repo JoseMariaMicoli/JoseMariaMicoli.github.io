@@ -4,7 +4,7 @@ theme = 'terminal'
 
 [params]
   themeColor = "green"
-  # This filters what appears on the homepage feed
+  # This ensures the home page shows your latest posts
   contentTypeName = "posts" 
   author = "J.M. Micoli"
   logoText = "GHOST-HYDRA INTELLIGENCE" 
@@ -16,7 +16,8 @@ theme = 'terminal'
   series = "series"
 
 [permalinks]
-  series = "/series/:slug/"
+  # This makes the URL for your reports cleaner
+  htb-reports = "/htb-reports/:filename/"
 
 [languages]
   [languages.en]
@@ -43,21 +44,11 @@ theme = 'terminal'
         weight = 20
 
       [[languages.en.menu.main]]
-        name = "RED-TEAM Professional Suite"
+        name = "RED-TEAM Pro Suite"
         url = "/pro-suite"
         weight = 30
-
-      [[languages.en.menu.main]]
-        name = "ExploitDevLog"
-        url = "/devlog"
-        weight = 40
 
       [[languages.en.menu.main]]
         name = "Intel Feed"
         url = "/posts"
         weight = 50
-
-      [[languages.en.menu.main]]
-        name = "Legal"
-        url = "/license"
-        weight = 60
