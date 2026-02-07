@@ -2,12 +2,9 @@ baseURL = 'https://JoseMariaMicoli.github.io/'
 title = 'Ghost-Hydra Intelligence'
 theme = 'terminal'
 
-# Add these two lines to help Hugo find assets in parent folders
-canonifyURLs = true
-relativeURLs = true
-
 [params]
   themeColor = "green"
+  # Terminal usa 'posts' para mostrar el contenido en la home
   contentTypeName = "posts" 
   author = "J.M. Micoli"
   logoText = "GHOST-HYDRA INTELLIGENCE" 
